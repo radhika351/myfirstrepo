@@ -1,0 +1,90 @@
+What is Jenkins?
+-----------------
+Jenkins is a continous integration and build server.
+
+It is used to manually,periodically or automatically build software development projects
+
+It is an open source continous integration tool written in java
+
+Before it was named as HUDSON, they renamed in 2011 to Jenkins
+
+What is continous integration?
+------------------------------
+Developers commit code to shared repository on regular basis. It involves a tool that keeps monitor your
+version control system.
+
+Whenever change is detected in version control system, build will be triggered automatically
+
+If the build is not green, system will notify the developers
+
+
+Why we need continous integration?
+-----------------------------------
+Since the entire code base is integrated, built and tested constantly, potential bugs and errors are caught 
+earlier in the life cycle which results in better quality software
+
+What is continous delivery?
+---------------------------
+Continous delivery of code to an environment once the code is ready to ship. This could be staging or production.
+Here product is delivered to a user base, which can be QA or customers for reveiw and inspection.
+
+What is Continous deployment?
+------------------------------
+The deployment or release of code to production as soon as it is ready.
+It requires continous integration and continous deployment
+
+Jenkins terminology:
+--------------------
+Jenkins works as a Master and Slave architecture.
+
+Jenkins Master:
+---------------
+
+Jenkins master handles below tasks
+    Schedule build jobs
+    Dispatch builds to slaves for actual job execution
+    Monitor the slaves and record the build results and presenting the build reports
+    Can also executes build jobs directly
+
+Jenkins Slave:
+--------------
+
+Jenkins slave is a small java program it listens the requests from  jenkins master. 
+It will execute build jobs dispatched by master
+    
+It is possible to configure a job always to run on particular slave  machine
+
+Slaves are computers that are setup to build projects for master
+Jenkins run a seperate rpogram called slave agent on slaves
+
+When slaves are registered to master, a master starts disributing loads to slaves
+
+Plugin:
+-------
+Plugin is a peice of software that extends the core functionality of jenkins server.
+    
+In jenkins dashboard there is plugin tab
+
+There are two options
+
+Install plugin w/o restart
+
+downlaod now and install after restart ==> we use this when upgrading plugin
+
+Export java path on linux:
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64/jre/bin/java
+export PATH=$JAVA_HOME/bin:$PATH
+readlink -f $(which java) it will give u the path
+
+
+What does this package do?
+Jenkins will be launched as a daemon on startup. See /etc/init.d/jenkins for more details.
+The 'jenkins' user is created to run this service. If you change this to a different user via the config file, you must change the owner of /var/log/jenkins, /var/lib/jenkins, and /var/cache/jenkins.
+Log file will be placed in /var/log/jenkins/jenkins.log. Check this file if you are troubleshooting Jenkins.
+/etc/sysconfig/jenkins will capture configuration parameters for the launch.
+By default, Jenkins listen on port 8080. Access this port with your browser to start configuration.  Note that the built-in firewall may have to be opened to access this port from other computers.  (See http://www.cyberciti.biz/faq/disable-linux-firewall-under-centos-rhel-fedora/ for instructions how to disable the firewall permanently)
+A Jenkins RPM repository is added in /etc/yum.repos.d/jenkins.repo
+
+
+/var/lib/jenkins/secrets/initialAdminPassword
+092ede46c6ce4692b8ee6d2e70af0552
